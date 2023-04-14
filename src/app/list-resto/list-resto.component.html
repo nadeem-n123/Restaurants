@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="col-md-10">
+    <table class="table text-center table-striped">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">Sr.no</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Address</th>
+          <th scope="col">Location</th>
+          <th scope="col">ZipCode</th>
+          <th scope="col">Created/Updated On</th>
+          <th scope="col">Action's</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of collection; index as i">
+          <td><b>{{i+1}}</b></td>
+          <td>{{item?.attributes?.name}}</td>
+          <td>{{item?.attributes?.email}}</td>
+          <td>{{item?.attributes?.address}}</td>
+          <td>{{item?.attributes?.location}}</td>
+          <td>{{item?.attributes?.zipcode}}</td>
+          <td>{{item?.attributes?.updatedAt | date:'short'}}</td>
+          <td><a routerLink="/update/{{item.id}}">
+            <i class="fa fa-edit mx-3" style="font-size:35px;color:green;"></i></a>
+            <i (click)="DltResto(item?.id)" class="fa fa-trash" style="font-size:35px;color:red;"></i></td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-container *ngIf="collection?.length === 0">
+      <p class="text-center">No Data Found</p>
+    </ng-container>
+
+    <!-- <div class="pagination-box mt-3" *ngIf="collection?.length > 0">
+      <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="pageChange($event)">
+      </pagination-controls>
+    </div> -->
+  </div>
+  </div>
+  

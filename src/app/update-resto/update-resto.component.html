@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="row ">
+    <form [formGroup]="editresto" (ngSubmit)="updateRestoData(editresto.value)">
+          <div class="col-md-12">
+          <div class="page-area mb-2">
+  
+      <!-- <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success ! </strong> Restaurant added successfully.
+        <button (click)="closealert()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div> -->
+  
+          <h2 class="text-center"><b>Update Restaurant Data</b></h2><hr>
+  
+          <div class="form-group px-4 mb-3">
+          <label><b>Restaurant Name</b></label>
+          <input type="text" placeholder="Enter Resto Name..." class="form-control" name="name" formControlName="name" maxlength="20">
+          <span class="form-text text-danger" *ngIf="submitted && editresto.controls.name.errors">
+              <span *ngIf="submitted && editresto.controls.name.errors['required']">
+                  Name is required.
+              </span>
+              <span *ngIf="submitted && editresto.controls.name.errors['minlength']">
+                  Minimum length is 3.
+              </span>
+              <span *ngIf="submitted && editresto.controls.name.errors['maxlength']">
+                  Maximum length is 20.
+              </span>
+              <span *ngIf="submitted && editresto.controls.name.errors['pattern']">
+                  ! Please enter a valid name.
+              </span>
+          </span>
+          </div>
+  
+          <div class="form-group px-4 mb-3">
+              <label><b>Email</b></label>
+              <input type="email" placeholder="Enter Email..." class="form-control" name="email" formControlName="email">
+              <span class="form-text text-danger" *ngIf="submitted && editresto.controls.email.errors">
+                  <span *ngIf="submitted && editresto.controls.email.errors['required']">
+                      <b>Email is required.</b>
+                  </span>
+              </span>
+          </div>
+  
+          <div class="form-group px-4 mb-3">
+              <label><b>Address</b></label>
+              <input type="text" placeholder="Enter Address Here..." name="address" class="form-control" formControlName="address" maxlength="30">
+              <span class="form-text text-danger" *ngIf="submitted && editresto.controls.address.errors">
+                  <span *ngIf="submitted && editresto.controls.address.errors['required']">
+                      <b>Address is required.</b>
+                  </span>
+                  <span *ngIf="submitted && editresto.controls.address.errors['maxlength']">
+                      Maximum length is 30.
+                  </span>
+              </span>
+          </div>
+  
+          <div class="form-group px-4 mb-3">
+              <label><b>Location</b></label>
+              <input type="text" placeholder="Enter Location Here..." name="location" class="form-control" formControlName="location" maxlength="20">
+              <span class="form-text text-danger" *ngIf="submitted && editresto.controls.location.errors">
+                  <span *ngIf="submitted && editresto.controls.location.errors['required']">
+                      Location is required.
+                  </span>
+                  <span *ngIf="submitted && editresto.controls.location.errors['maxlength']">
+                      Maximum length allowed is 20.
+                  </span>
+                  <span *ngIf="submitted && editresto.controls.location.errors['pattern']">
+                      ! Please enter a valid location.
+                  </span>
+              </span>
+          </div>
+  
+          <div class="form-group px-4 mb-3">
+              <label><b>Zipcode</b></label>
+              <input type="number" placeholder="Enter Zipcode Here..." name="zipcode" class="form-control" formControlName="zipcode" maxlength="6">
+              <span class="form-text text-danger" *ngIf="submitted && editresto.controls.zipcode.errors">
+                  <span *ngIf="submitted && editresto.controls.zipcode.errors['required']">
+                     Zipcode is required.
+                  </span>
+                  <span *ngIf="submitted && editresto.controls.zipcode.errors['maxlength']">
+                      Maximum length allowed is 6.
+                  </span>
+                  <span *ngIf="submitted && editresto.controls.zipcode.errors['pattern']">
+                      ! Please enter a valid Zipcode.
+                  </span>
+              </span>
+          </div>
+  
+              <button class="btn btn-primary mx-4 px-4">Update <i class="fa fa-folder-open" style="font-size:15px; color: whitesmoke;"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+          </div>
+    </form>
+    </div>
+  
+  
+  

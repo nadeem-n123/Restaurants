@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row ">
+    <form [formGroup]="resto" (ngSubmit)="addresto(resto.value)">
+          <div class="col-md-12">
+          <div class="page-area mb-2">
+  
+      <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong class="text-success">Success ! </strong><span class="text-primary">Restaurant Added Successfully.</span>
+        <button (click)="closealert()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+  
+          <h2 class="text-center"><b>Add Restaurant Data</b></h2><hr>
+          <div class="form-group px-4 mb-2">
+          <label><b>Restaurant Name *</b></label>
+          <input type="text" placeholder="Enter Resto Name..." class="form-control" name="name" formControlName="name" maxlength="20">
+              <span class="form-text text-danger mx-2" *ngIf="submitted && resto.controls.name.errors">
+                  <span *ngIf="submitted && resto.controls.name.errors['required']">
+                      Restaurant name is required.
+                  </span>
+                  <span *ngIf="submitted && resto.controls.name.errors['minlength']">
+                      Minimum length is 3.
+                  </span>
+                  <span *ngIf="submitted && resto.controls.name.errors['maxlength']">
+                      Maximum length is 20.
+                  </span>
+                  <span *ngIf="submitted && resto.controls.name.errors['pattern']">
+                      ! Please enter valid name.
+                  </span>
+              </span>
+          </div>
+          <div class="form-group px-4 mb-2">
+              <label><b>Email *</b></label>
+              <input type="email" placeholder="Enter Email..." class="form-control" name="email" formControlName="email">
+              <span class="form-text text-danger mx-2" *ngIf="submitted && resto.controls.email.errors">
+                  <span *ngIf="submitted && resto.controls.email.errors['required']">
+                      Email is required.
+                  </span>
+              </span>
+          </div>
+  
+          <div class="form-group px-4 mb-2">
+              <label><b>Address</b></label>
+              <input type="text" placeholder="Enter Address Here..." name="address" class="form-control" formControlName="address" maxlength="45">
+              <span class="form-text text-danger mx-2" *ngIf="submitted && resto.controls.address.errors">
+                  <span *ngIf="submitted && resto.controls.address.errors['required']">
+                      Address is required.
+                  </span>
+                  <span *ngIf="submitted && resto.controls.address.errors['maxlength']">
+                      Maximum length allowed 45 character.
+                  </span>
+              </span>
+          </div>
+          <div class="form-group px-4 mb-2">
+              <label><b>Location</b></label>
+              <input type="text" placeholder="Enter Location Here..." name="location" class="form-control" formControlName="location" maxlength="25">
+              <span class="form-text text-danger mx-2" *ngIf="submitted && resto.controls.location.errors">
+                  <span *ngIf="submitted && resto.controls.location.errors['required']">
+                      Location is required.
+                  </span>
+                  <span *ngIf="submitted && resto.controls.location.errors['maxlength']">
+                      Maximum length is 25.
+                  </span>
+                  <span *ngIf="submitted && resto.controls.location.errors['pattern']">
+                      ! Please enter valid location.
+                  </span>
+              </span>
+          </div>
+          <div class="form-group px-4 mb-2">
+              <label><b>Zipcode</b></label>
+              <input type="text" placeholder="Enter Zipcode Here..." name="zipcode" class="form-control" formControlName="zipcode" maxlength="6">
+              <span class="form-text text-danger mx-2" *ngIf="submitted && resto.controls.zipcode.errors">
+                  <span *ngIf="submitted && resto.controls.zipcode.errors['required']">
+                      Zipcode is required.
+                  </span>
+                  <span *ngIf="submitted && resto.controls.zipcode.errors['maxlength']">
+                      Maximum length is 6.
+                  </span>
+                  <span *ngIf="submitted && resto.controls.zipcode.errors['pattern']">
+                      ! Please enter valid pin.
+                  </span>
+              </span>
+          </div>
+              <button class="btn btn-primary px-4 mx-4 mt-2">Submit <i class="fa fa-folder" style="font-size:15px; color: whitesmoke;"></i></button>
+          </div>
+          </div>
+    </form>
+    </div>
+  
+  

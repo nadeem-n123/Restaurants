@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row ">
+    <form [formGroup]="register" (ngSubmit)="Registeruser(register.value)">
+          <div class="col-md-12">
+          <div class="page-area mb-2">
+  
+      <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success ! </strong><span class="text-primary">User Registered successfully.</span>
+        <button (click)="closealert()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+  
+          <h2 class="text-center"><b>Register New User</b></h2><hr>
+          <div class="form-group px-4 mb-2">
+          <label><b>User Name</b></label>
+          <input type="text" placeholder="Enter user name..." class="form-control" name="name" formControlName="name">
+          <span class="form-text text-danger" *ngIf="submitted && register.controls.name.errors">
+            <span *ngIf="submitted && register.controls.name.errors['required']">
+                Name is required.
+            </span>
+            <span *ngIf="submitted && register.controls.name.errors['minlength']">
+                Minimum length atleast 3 character.
+            </span>
+            <span *ngIf="submitted && register.controls.name.errors['maxlength']">
+                Maximum length is 8.
+            </span>
+            <span *ngIf="submitted && register.controls.name.errors['pattern']">
+                ! Please enter a valid name.
+            </span>
+          </span>
+          </div>
+          <div class="form-group px-4 mb-2">
+              <label><b>Email</b></label>
+              <input type="email" placeholder="Enter user email..." class="form-control" name="email" formControlName="email">
+              <span class="form-text text-danger" *ngIf="submitted && register.controls.email.errors">
+                  <span *ngIf="submitted && register.controls.email.errors['required']">
+                      Email is required.
+                  </span>
+              </span>
+          </div>
+  
+          <div class="form-group px-4 mb-2">
+              <label><b>Password</b></label>
+              <input type="password" placeholder="Enter password here..." name="password" class="form-control" formControlName="password" maxlength="8">
+              <span class="form-text text-danger" *ngIf="submitted && register.controls.password.errors">
+                  <span *ngIf="submitted && register.controls.password.errors['required']">
+                      Password is required.
+                  </span>
+                  <span *ngIf="submitted && register.controls.password.errors['minlength']">
+                      Minimum length required atleast 6 character.
+                  </span>
+                  <span *ngIf="submitted && register.controls.password.errors['maxlength']">
+                      Maximum length allowed only 8 character.
+                  </span>
+                  <span *ngIf="submitted">
+  
+                  </span>
+              </span>
+          </div>
+          <button class="btn btn-primary px-4 mx-4 mt-3">Register User <i class="fa fa-sign-in" style="font-size:16px; color: whitesmoke;"></i></button>
+          <button (click)="back()" class="btn btn-danger px-4 mt-3"><i class="fa fa-angle-double-left" style="font-size:20px;color:white;"></i> Back To Login</button><hr><hr><hr><hr>
+          </div>
+          </div>
+    </form>
+    </div>
+  </div>
+  
+  
+  
